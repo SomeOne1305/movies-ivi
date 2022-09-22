@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .sliders{
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid red;
+        }
+        .controller{
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 2vw;
+            background-color: rgba(0, 0, 0, 0.715);
+            backdrop-filter: blur(2px);
+            box-shadow: 0px 0px 31px 10px rgba(0,0,0,0.75);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: #fff;
+            z-index: 1;
+        }
+        .left{
+            left: 0;
+        }
+        .right{
+            right: 0;
+        }
+        .controller:active  i{
+            font-size: 30px;
+        }
+        .slider{
+            width: 96%;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid red;
+        }
+        .slides{
+            width: 10000px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: -96vw;
+            transition: 1s;
+        }
+        .slide{
+            width: 96vw;
+            height: 100%;
+            padding: 10px;
+            transition: 1s;
+        }
+        .slide img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+    </style>
+    <div class="sliders">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="https://wallpaper.dog/large/20544431.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="https://wallpaper.dog/large/20544431.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="https://wallpaper.dog/large/20544431.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="https://wallpaper.dog/large/20544431.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="https://wallpaper.dog/large/20544431.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="https://wallpaper.dog/large/20544431.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="controller left"><i class="fa fa-angle-left"></i></div>
+        <div class="controller right"><i class="fa fa-angle-right"></i></div>
+    </div>
+    <script>
+        let right = document.querySelector('.right')
+        let left = document.querySelector('.left')
+        let slides = document.querySelector('.slides')
+        let slide = document.querySelectorAll('.slide')
+        left.addEventListener('click', ()=>{
+            slides.style.left = -slide[0].clientWidth + "px"
+        })
+        right.addEventListener('click', ()=>{
+            slides.style.left = slide[0].clientWidth + "px"
+        })
+    </script>
+</body>
+</html>
