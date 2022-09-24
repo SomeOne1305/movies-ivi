@@ -1,3 +1,62 @@
+// fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=35fa8784c15d0825d778234c487a5807&language=en-US&page=1`)
+// .then(response => response.json())
+// .then(data => top_rated(data.results))
+// function top_rated(data){
+//     data.forEach(item => {
+//         let slide = document.createElement('div')
+//         slide.className = "slide"
+//         sliderItems.append(slide)
+//         let slide_image = document.createElement('img')
+//         slide_image.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.poster_path}`)
+//         slide.append(slide_image)
+//         let watch = document.createElement("span")
+//         watch.innerHTML = "Смотреть"
+//         slide.append(watch)
+//     });
+// }
+let block = document.querySelector('.block')
+fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=35fa8784c15d0825d778234c487a5807&language=en-US&page=1`)
+.then(response => response.json())
+.then(data => myFunc(data.results))
+function myFunc(data){
+    data.forEach(item => {
+        let a = document.createElement('a')
+        a.className = "next-page"
+        block.append(a)
+        let card = document.createElement('div')
+        card.className = "card"
+        a.append(card)
+        
+        let image = document.createElement('div')
+        image.className = 'image'
+        card.append(image)
+            let img = document.createElement('img')
+            image.append(img)
+            img.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.poster_path}`)
+            let ForAge = document.createElement('span')
+            ForAge.className = "ForAge"
+            image.append(ForAge)
+            if (item.adult = false) {
+                ForAge.innerHTML = "16+"
+            } else {
+                ForAge.innerHTML = "12+"
+            }
+            let AllInfo = document.createElement('div')
+                AllInfo.className = "All-info"
+                image.append(AllInfo)
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
 // Slider
 var slider = document.getElementById('slider'),
             sliderItems = document.getElementById('slides'),
@@ -118,15 +177,8 @@ var slider = document.getElementById('slider'),
 
         slide(slider, sliderItems, prev, next);
 
+
 //Slide end
-
-fetch(`https://api.themoviedb.org/3/movie/550?api_key=35fa8784c15d0825d778234c487a5807`)
-.then(response => response.json())
-.then(data => myFunc(data))
-function myFunc(data){
-    document.querySelector('.image img').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`)
-}
-
 
 
 

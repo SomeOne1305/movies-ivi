@@ -154,7 +154,7 @@ nav{
     color: gray;
     line-height: 22px;
 }
-.block a{
+.next-page{
     text-decoration: none;
 }
 .All-Info{    
@@ -291,6 +291,18 @@ nav{
     transition: all 1s;
     position: relative;
     border-radius: 2px;
+}
+
+.watch{
+    font-size: 22px;
+    padding: 5px 10px;
+    background-color: #FF0F4D;
+    border-radius: 5px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
 }
 
 /* .slide:nth-child(2),
