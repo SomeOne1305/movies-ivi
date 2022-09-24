@@ -117,3 +117,16 @@ var slider = document.getElementById('slider'),
         }
 
         slide(slider, sliderItems, prev, next);
+
+//Slide end
+
+fetch(`https://api.themoviedb.org/3/movie/550?api_key=35fa8784c15d0825d778234c487a5807`)
+.then(response => response.json())
+.then(data => myFunc(data))
+function myFunc(data){
+    document.querySelector('.image img').setAttribute('src', `https://image.tmdb.org/t/p/w500/${data.poster_path}`)
+}
+
+
+
+

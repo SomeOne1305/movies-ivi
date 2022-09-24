@@ -2,4 +2,27 @@
     .container{
         max-width: 96%;
     }
+    .control{
+        max-width: 30px;
+    }
+    .slide{
+        max-width: 94.5vw;
+    }
+    .control i{
+        margin: 0;
+    }
+    .next{
+        right: 0;
+    }
+    .slides{
+        position: absolute;
+        left: -96vw;
+    }
+    .wrapper{
+        max-width: 96vw;
+        margin: 0 auto;
+    }
+    .slider{
+        max-width: 100%;
+    }
 }

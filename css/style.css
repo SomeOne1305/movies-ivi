@@ -122,6 +122,7 @@ nav{
 .image{
     width: 95%;
     height: 80%;
+    transition: 0.3s;
     position: relative;
 }
 .ForAge{
@@ -160,15 +161,23 @@ nav{
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0 , 0, 0.7);
+    background-color: rgba(0, 0 , 0, 0.8);
     position: absolute;
     top: 0;
     left: 0;
+    transform: scale(0);
+    transition: 0.01s ease-out;
 }
+.image:hover .All-Info{
+    transform: scale(1);
+}
+.image:hover{
+    transform: scale(1.04);
+}
+
 .top{
     width: 30px;
     height: auto;
-    border: 1px solid #fff;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -201,6 +210,45 @@ nav{
 
 .icon i, .icon ion-icon{
     font-size: 21px;
+}
+.about{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+}
+.popularity{
+    color: #fff;
+    font-size: 25px;
+    display: flex;
+}
+.lines{
+    width: 30px;
+    height: 25px;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #fff;
+}
+.line{
+    width: 90%;
+    height: 3px;
+    border-radius: 1px;
+    background-color: rgba(255, 255, 255, 0.224);
+}
+.clr{
+    height: 100%;
+    width: 3px;
+    background-color: #EA003D;
+}
+.about p{
+    color: #b0b0b0;
+    font-size: 15px;
+    margin-top: 10px;
 }
 
 /* Slider */
