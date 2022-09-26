@@ -19,7 +19,7 @@ fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=35fa8784c15d0825d7782
 .then(response => response.json())
 .then(data => myFunc(data.results))
 function myFunc(data){
-    data.forEach(item => {
+    data.forEach((item, index) => {
         let a = document.createElement('a')
         a.className = "next-page"
         block.append(a)
@@ -36,20 +36,121 @@ function myFunc(data){
             let ForAge = document.createElement('span')
             ForAge.className = "ForAge"
             image.append(ForAge)
-            if (item.adult = false) {
+            if (item.adult == false) {
                 ForAge.innerHTML = "16+"
             } else {
                 ForAge.innerHTML = "12+"
             }
             let AllInfo = document.createElement('div')
-                AllInfo.className = "All-info"
+                AllInfo.className = "All-Info"
                 image.append(AllInfo)
+            let top = document.createElement('div')
+            top.className = "top"
+            AllInfo.append(top)
+            for (let i = 0; i < 4; i++) {
+                let icon = document.createElement('div')
+                icon.className = "icon"
+                top.append(icon)
+                let ico = document.createElement('i')
+                ico.className = "fa-regular fa-bookmark"
+                icon.setAttribute('data-title', 'Смотреть поже')
+                icon.append(ico)
+
+            }
+            let about = document.createElement('div')
+            about.className = "about"
+            AllInfo.append(about)
+            let popularity = document.createElement('h3')
+            popularity.className = "popularity"
+            about.append(popularity)
+
+            if (item.vote_average == 6 | item.vote_average == 7 | item.vote_average == 8 | item.vote_average == 9 | item.vote_average == 5) {
+                popularity.innerHTML = `${item.vote_average}.0`
+            } else {
+                popularity.innerHTML = item.vote_average
+            }
+            let lines = document.createElement('div')
+            lines.className = "lines"
+            popularity.append(lines)
+            for (let i = 0; i < 3; i++) {
+                let line = document.createElement('div')
+                line.className = "line"
+                lines.append(line)
+                let clr = document.createElement('div')
+                clr.className = "clr"
+                line.append(clr)
+            }
+            let p = document.createElement('p')
+            about.append(p)
+            let year = document.createElement('span')
+            year.className = 'year'
+            year.innerHTML = item.release_date + ","
+            p.append(year)
+            let country = document.createElement('span')
+            country.className = "country"
+            if (item.original_language === "en") {
+                country.innerHTML = "English"
+            } else if(item.original_language === "ja"){
+                country.innerHTML = "Japanese"
+            }else if(item.original_language === "ru"){
+                country.innerHTML = "Russian"
+            }else if(item.original_language === "ko"){
+                country.innerHTML = "Korean"
+            }else if(item.original_language === "es"){
+                country.innerHTML = "Spanish"
+            }else{
+                country.innerHTML = item.original_language
+            }
+            p.append(country)
+            let genre  = document.createElement('span')
+            genre.className = 'genre'
+            p.append(genre)
+        fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=35fa8784c15d0825d778234c487a5807&language=en-US')
+        .then(response =>  response.json())
+        .then(genres => setGenre(genres))
+        function setGenre(genres){
+            // genre.innerHTML = genres.genres[item.genre_ids[0]].name
+            // console.log(item.genre_ids[0]);
+            // console.log(genre.genres[item.genre_ids[0]]);
+            // console.log(genre.);
+            // console.log(genres.genres[index].name);
+            // console.log(genres.genres[1].name);
+            // console.log(ind[0].name);
+            // console.log(genres.genres);
+            // console.log(ind[0].name);
+            // console.log(genres.genres);
+            let ind = genres.genres.filter(e =>e.id == item.genre_ids[0])
+            genre.innerHTML = `, ${ind[0].name}`
+        }
+        let info = document.createElement('div')
+        info.className = 'info'
+        card.append(info)
+        let movieName = document.createElement('h3')
+        movieName.className = "movieName"
+        info.append(movieName)
+        movieName.innerHTML = item.original_title
     });
 }
-
-
-
-
+let vote = document.querySelectorAll('.popularity')
+let line = document.querySelectorAll('.line')
+vote.forEach((item, index)=>{
+    if (item.innerHTML = 7) {
+        line[0].setAttribute('style', "--w: 0;")
+        line[1].setAttribute('style', "--w: 1%;")
+        line[2].setAttribute('style', "--w: 0;")
+    } else {
+        line[0].setAttribute("style", "--w:59%")
+        line[1].setAttribute('style', "--w: 23%;")
+        line[2].setAttribute('style', "--w: 31%;")
+    }
+})
+// vote.forEach(item=>{
+//     if () {
+        
+//     } else {
+        
+//     }
+// })
 
 
 

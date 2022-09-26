@@ -105,6 +105,8 @@ nav{
 .block{
     height: 330px;
     width: 100%;
+    display: flex;
+    overflow-x: scroll;
     border: 1px solid #fff;
 }
 
@@ -116,7 +118,7 @@ nav{
     align-items: center;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid #fff;
+    cursor: pointer;
     margin: 10px;
 }
 .image{
@@ -130,9 +132,9 @@ nav{
     right: 5px;
     bottom: 5px;
     padding: 5px;
-    background-color: rgba(0, 0, 0, 0.501);
+    background-color: rgba(0, 0, 0, 0.901);
     font-size: 12px;
-    color: gray;
+    color: rgb(187, 186, 186);
     border-radius: 5px;
 }
 .image img{
@@ -142,7 +144,7 @@ nav{
 }
 .info{
     width: 100%;
-    height: 100%;
+    height: 20%;
     padding: 10px 7px;
 }
 .info h3{
@@ -162,6 +164,7 @@ nav{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0 , 0, 0.8);
+    border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
@@ -203,6 +206,7 @@ nav{
     top: 0%;
     left: 120%;
     visibility: hidden;
+    z-index: +999;
 }
 .icon:hover::before{
     visibility: visible;
@@ -242,7 +246,7 @@ nav{
 }
 .clr{
     height: 100%;
-    width: 3px;
+    width: var(--w);
     background-color: #EA003D;
 }
 .about p{
