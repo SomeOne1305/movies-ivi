@@ -110,6 +110,17 @@ nav{
     border: 1px solid #fff;
 }
 
+
+.block::-webkit-scrollbar{
+    height: 10px;
+    background-color: rgb(38, 235, 225);
+}
+
+.block::-webkit-scrollbar-thumb{
+    background: #ffde01;
+}
+
+
 .card{
     width: 200px;
     height: 300px;
